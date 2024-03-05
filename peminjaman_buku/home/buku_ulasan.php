@@ -83,7 +83,14 @@
             <option value="1">⭐️</option>
         </select>
         
-        <input type="submit" value="Kirim Ulasan" class="submit-btn">
+        <input type="submit" value="Kirim Ulasan" class="submit-btn">   
+        
+<a href="index.php" class="submit-btn" style="padding: 5px; margin-left: 10px;">Kembali</a>
+
+
+
+
+</style>
     </form>
 </div>
 

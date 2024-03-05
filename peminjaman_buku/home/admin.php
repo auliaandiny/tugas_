@@ -76,12 +76,11 @@ if (!isset($_SESSION["login_type"])) {
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="./assets/img/admin-avatar.png" />
-                            <span></span><?php echo $_SESSION['nama_admin']; ?><i class="fa fa-angle-down m-l-5"></i></a>
+                            <span></span><?php $_SESSION['nama_admin']; ?><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="keluar.php"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
-                </ul>
                 <!-- END TOP-RIGHT TOOLBAR-->
             </div>
         </header>

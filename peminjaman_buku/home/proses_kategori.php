@@ -4,10 +4,10 @@ include 'koneksi.php';
 
 // Ambil data dari formulir
 $nama = $_POST['nama'];
-$deskripsi = $_POST['deskripsi'];
+$created_at = $_POST['created_at'];
 
 // Query SQL untuk menyimpan data anggota
-$sql = "INSERT INTO tb_kategori (nama_kategori, deskripsi_kategori) VALUES ('$nama', '$deskripsi')";
+$sql = "INSERT INTO tb_kategori (nama_kategori, created_at) VALUES ('$nama', '$created_at')";
 
 if ($koneksi->query($sql) === TRUE) {
     echo '<script language="javascript" type="text/javascript">

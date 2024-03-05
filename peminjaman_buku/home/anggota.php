@@ -165,7 +165,7 @@ if (!isset($_SESSION["login_type"])) {
                                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Anggota">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nis">NIS Anggota</label>
+                                    <label for="nis">Password</label>
                                     <input type="text" class="form-control" id="nis" name="nis" placeholder="NIS Anggota">
                                 </div>
                                 <div class="form-group">

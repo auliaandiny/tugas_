@@ -29,6 +29,22 @@
     .error {
         color: red;
     }
+    .btn {
+        display: inline-block;
+        background-color: #4682B4;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px; /* Menambahkan margin bawah untuk jarak */
+    }
+
+    .btn:hover,
+    .delete-btn:hover {
+        background-color: #d32f2f; /* Warna latar belakang saat tombol dihover */
+    }
+
     table {
         width: 100%;
         border-collapse: collapse;
@@ -49,22 +65,21 @@
         border-radius: 4px;
         cursor: pointer;
     }
-    .delete-btn:hover {
-        background-color: #d32f2f;
-    }
 </style>
 </head>
 <body>
 
 <div class="container">
     <h2>Data Ulasan Buku</h2>
+    <!-- Tombol untuk kembali ke halaman awal -->
+    <a href="index.php" class="btn">Kembali</a>
     <table>
         <tr>
             <th>ID Ulasan</th>
             <th>Judul Buku</th>
             <th>Ulasan</th>
             <th>Rating</th>
-            <th>Dibuat di</th>
+            <th>Dibuat pada</th>
             <th>Tindakan</th>
         </tr>
         <?php
@@ -82,15 +97,15 @@
         }
 
         // Query SELECT
-        $query = "SELECT * FROM tb_ulasan";
+        $query = "SELECT * FROM tb_buku_ulasan";
         $result = mysqli_query($koneksi, $query);
 
         if (mysqli_num_rows($result) > 0) {
-            // Output data ulasan per baris
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row['id_ulasan'] . "</td>";
-                echo "<td>" . $row['judul_buku'] . "</td>";
+                echo "<td>" . (isset($row['judul_buku']) ? $row['judul_buku'] : 'Data tidak tersedia') . "</td>";
+
                 echo "<td>" . $row['ulasan'] . "</td>";
                 echo "<td>" . $row['rating'] . "</td>";
                 echo "<td>" . $row['created_at'] . "</td>";
@@ -111,7 +126,7 @@
         $koneksi = mysqli_connect($host, $username, $password, $database);
         $id_ulasan_to_delete = $_POST['id_ulasan'];
 
-        $query_delete = "DELETE FROM tb_ulasan WHERE id_ulasan = '$id_ulasan_to_delete'";
+        $query_delete = "DELETE FROM tb_buku_ulasan WHERE id_ulasan = '$id_ulasan_to_delete'";
 
         if (mysqli_query($koneksi, $query_delete)) {
             echo "<p class='success'>Data ulasan berhasil dihapus!</p>";

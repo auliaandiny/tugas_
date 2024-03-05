@@ -101,46 +101,46 @@ if (!isset($_SESSION["login_type"])) {
                 </ol>
             </div>
             <div class="page-content fade-in-up">
-                <div class="ibox">
-                    <div class="ibox-head">
-                        <div class="ibox-title">Data Kategori</div>
-                        <a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#kategoriModal"><i class="fa fa-plus"></i> Tambah Data</a>
-                    </div>
-                    <div class="ibox-body">
-                        <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Nama Kategori</th>
-                                    <th>Deskripsi Kategori</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                $no=1;
+            <div class="page-content fade-in-up">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">Data Kategori</div>
+            <a class="btn btn-sm btn-primary" href="" data-toggle="modal" data-target="#kategoriModal"><i class="fa fa-plus"></i> Tambah Data</a>
+        </div>
+        <div class="ibox-body">
+            <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Kategori</th>
+                        <th>Deskripsi</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    $no=1;
 
-                                $data = "SELECT * FROM tb_kategori";
-                                $result = mysqli_query($koneksi,$data);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                <tr>
-                                    <td><?php echo $no++; ?></td>
-                                    <td><?php echo $row['nama_kategori']; ?></td>
-                                    <td><?php echo $row['deskripsi_kategori']; ?></td>
-                                    <td>
-                                        <a class="btn btn-sm btn-warning" href="" data-toggle="modal" data-target="#kategorieditModal<?php echo $row['id_kategori']; ?>"><i class="fa fa-cog"></i></a>
-                                        <a class="btn btn-sm btn-danger" href="hapus_kategori.php?id=<?php echo $row['id_kategori']; ?>"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                    $data = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM tb_kategori"; // Perbaikan query SQL
+                    $result = mysqli_query($koneksi,$data);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $row['nama_kategori']; ?></td>
+                        <td><?php echo $row['deskripsi_kategori']; ?></td> <!-- Menggunakan deskripsi_kategori sesuai dengan kolom yang ada dalam tabel -->
+                        <td>
+                            <a class="btn btn-sm btn-warning" href="" data-toggle="modal" data-target="#kategorieditModal<?php echo $row['id_kategori']; ?>"><i class="fa fa-cog"></i></a>
+                            <a class="btn btn-sm btn-danger" href="hapus_kategori.php?id=<?php echo $row['id_kategori']; ?>"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-            <!-- Modal Tambah -->
             <div class="modal fade" id="kategoriModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -394,3 +394,4 @@ if (!isset($_SESSION["login_type"])) {
 </body>
 
 </html>
+

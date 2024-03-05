@@ -88,33 +88,24 @@
                             <span class="nav-label">Dashboard</span>
                         </a>
                     </li>
-            <li class="heading">Peminjaman Buku</li>
+                    <li class="heading">Peminjaman Buku</li>
+                    <li>
+                        <a href="peminjaman.php"><i class="sidebar-item-icon fa fa-sticky-note"></i>
+                            <span class="nav-label">Peminjaman Buku</span></a>
+                    </li>
             <li>
-                <a href="peminjaman.php">
-                    <i class="sidebar-item-icon fa fa-sticky-note"></i>
-                    <span class="nav-label">Peminjaman Buku</span>
-                </a>
-            </li>
-            <li class="heading">Master Data</li>
-            <li>
-                <a href="detail_buku.php">
+                <a href="buku_user.php">
                     <i class="sidebar-item-icon fa fa-book"></i> Buku
                 </a>
             </li>
-            <li>
-                <a href="kategori.php">
-                    <i class="sidebar-item-icon fa fa-coffee"></i> Kategori
-                </a>
+            
             <li>
                 <a href="buku_ulasan.php"><i class="sidebar-item-icon fa fas fa-star"></i>
                     <span class="nav-label">Ulasan</span></a>
             </li>
         </ul>
             </li>
-            <li>
-                <a href="keluar.php"><i class="sidebar-item-icon fa fa-sign-out"></i>
-                    <span class="nav-label">Keluar</span></a>
-            </li>
+           
         </ul>
     </div>
 </nav>
